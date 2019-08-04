@@ -6,6 +6,12 @@
 
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
 
+    <script>
+    document.addEventListener('DOMContentLoaded', (event) => {
+  ((localStorage.getItem('mode') || 'dark') === 'dark') ? document.querySelector('body').classList.add('dark') : document.querySelector('body').classList.remove('dark')
+})
+    </script>
+
     <style>
       @font-face {
         font-family: "Roboto Regular";
@@ -16,13 +22,17 @@
         font-family: "Roboto Regular", Roboto;
       }
 
+      .dark {
+        background: #222222;
+      }
+
       * {
         box-sizing: border-box;
       }
 
 			a {
     		text-decoration: none;
-    		color: white;
+    		color: #ffffff;
 			}
 
 			img {
@@ -43,7 +53,7 @@
 				padding: 0;
 				width: 100%;
 				overflow: hidden;
-				background-color: #ffffff;
+				background-image: url("Images/Logo/Background2.png");
 			}
 
 			li {
@@ -54,18 +64,18 @@
 			li a {
 				display: block;
 				font-size: 15px;
-				color: black;
+				color: white;
 				padding: 0px 14px;
 				text-decoration: none;
 				transition: 0.25s;
 			}
 
 			li a:hover {
-				background-color: #f0f0f0;
+				background-color: #222222;
 			}
 
       .b a {
-        padding: 16px 0px;
+        padding: 16.2px 0px;
       }
 
       .row {
@@ -96,6 +106,7 @@
           max-width: 33.33333%;
         }
       }
+
       @media screen and (max-width: 800px) {
         .column {
           -ms-flex: 50%;
@@ -103,6 +114,7 @@
           max-width: 50%;
         }
       }
+
       @media screen and (max-width: 600px) {
         .column {
           -ms-flex: 100%;
@@ -110,6 +122,7 @@
           max-width: 100%;
         }
       }
+
       @media screen and (max-width: 700px) and (max-height: 800px) {
         .column {
           -ms-flex: 100%;
@@ -117,14 +130,15 @@
           max-width: 100%;
         }
       }
+
     </style>
 
   </head>
 
-  <body bgcolor="#ffffff">
+  <body class="">
     <ul>
-      <li class="b"><a href="about">About</a></li>
-      <li><a href="/"><img src="Images/Logo/LogoB.png" height="50px" /></a></li>
+      <li class="b"><a style="cursor: pointer" onclick="localStorage.setItem('mode', (localStorage.getItem('mode') || 'dark') === 'dark' ? 'bright' : 'dark'); localStorage.getItem('mode') === 'dark' ? document.querySelector('body').classList.add('dark') : document.querySelector('body').classList.remove('dark')" title="Switch to light or dark theme">Light/dark mode</a></li>
+      <li><a href="/"><img src="Images/Logo/LogoB White.png" height="50px" /></a></li>
       <li class="b"><a href="https://www.instagram.com/volkaneur" target="_blank">Instagram</a></li>
     </ul>
 
